@@ -14,14 +14,13 @@ const PhysX = physx({
     }
     return path
   },
+  onRuntimeInitialized() {
+    loaded = true
+    console.log('PhysX loaded')
+    setup()
+    if (cb) cb()
+  },
 })
-
-PhysX.onRuntimeInitialized = () => {
-  loaded = true
-  console.log('PhysX loaded')
-  setup()
-  if (cb) cb()
-}
 
 export const onLoad = _cb => {
   cb = _cb
