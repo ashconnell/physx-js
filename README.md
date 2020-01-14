@@ -16,7 +16,7 @@ There is an example of how to use this with Webpack in the /example folder.
 
 Alternatively you can [preview the live version](https://physx-js-example.deminetix.now.sh) hosted on now.sh
 
-# Usage via NPM
+# Usage
 
 ```
 npm install physx-js
@@ -26,11 +26,11 @@ The `physx.release.js` file can be imported via Webpack etc or included as a scr
 
 The `physx.release.wasm` needs to be served in a public folder so that it can be loaded in a browser environment
 
-TODO: We need a clean way to use these files + an example web app.
+See `/example` for how this can be done using Webpack.
 
-# Making a build
+# Development
 
-You can modify and/or build this yourself to create js and wasm files.
+You can modify and/or build this yourself from source to create js and wasm files.
 
 The only dependencies you need are Docker and Node/NPM. All other dependencies are managed inside the docker image.
 
