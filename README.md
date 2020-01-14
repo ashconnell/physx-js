@@ -12,7 +12,7 @@ This repo serves two purposes:
 
 ## Example
 
-There is an example of how to use this with Webpack in the /example folder. 
+There is an example of how to use this with Webpack in the `/example` folder. 
 
 Alternatively you can [preview the live version](https://physx-js-example.deminetix.now.sh) hosted on now.sh
 
