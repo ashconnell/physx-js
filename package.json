@@ -1,7 +1,16 @@
 {
-  "name": "physxjs",
+  "name": "physx-js",
   "version": "0.0.1",
-  "dependencies": {
+  "author": "Ash Connell <hello@ashconnell.com>",
+  "main": "dist/physx.release.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashconnell/physx-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ashconnell/physx-js/issues"
+  },
+  "devDependencies": {
     "physx": "prestomation/PhysX#emscripten_wip"
   },
   "scripts": {
