@@ -1,6 +1,6 @@
 {
   "name": "physx-js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Ash Connell <hello@ashconnell.com>",
   "main": "dist/physx.release.js",
   "repository": {
@@ -16,8 +16,5 @@
   "scripts": {
     "test": "docker run --rm -it -v $(pwd):/src trzeci/emscripten /bin/bash",
     "build": "docker run --rm -v $(pwd):/src trzeci/emscripten ./build.sh"
-  },
-  "engines": {
-    "node": ">=10.16.0"
   }
 }
