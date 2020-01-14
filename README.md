@@ -16,7 +16,7 @@ This repo serves two purposes:
 npm install physx-js
 ```
 
-The `physx.release.js` file can be imported via Webpack etc or included as a <script> on the page
+The `physx.release.js` file can be imported via Webpack etc or included as a script on the page
 
 The `physx.release.wasm` needs to be served in a public folder so that it can be loaded in a browser environment
 
