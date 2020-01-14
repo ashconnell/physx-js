@@ -10,6 +10,12 @@ This repo serves two purposes:
 - Offer a reproducible docker environment to easily build and compile PhysX to WebAssembly via [Emscripten](https://emscripten.org)
 - House the files used to publish this as a package on npm ([physx-js](https://www.npmjs.com/package/physx-js))
 
+# Example
+
+There is an example of how to use this with Webpack in the /example folder. 
+
+Alternatively you can [preview the live version](https://physx-js-example.deminetix.now.sh) hosted on now.sh
+
 # Usage via NPM
 
 ```
