@@ -14,7 +14,7 @@
     "physx": "prestomation/PhysX#emscripten_wip"
   },
   "scripts": {
-    "test": "docker run --rm -it -v $(pwd):/src trzeci/emscripten /bin/bash",
-    "build": "docker run --rm -v $(pwd):/src trzeci/emscripten ./build.sh"
+    "build": "docker run --rm -v $(pwd):/src trzeci/emscripten ./build.sh",
+    "shell": "docker run --rm -it -v $(pwd):/src trzeci/emscripten /bin/bash"
   }
 }
