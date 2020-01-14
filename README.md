@@ -24,7 +24,9 @@ TODO: We need a clean way to use these files + an example web app.
 
 # Making a build
 
-You can modify and/or build this yourself to create js and wasm files:
+You can modify and/or build this yourself to create js and wasm files.
+
+The only dependencies you need are Docker and Node/NPM. All other dependencies are managed inside the docker image.
 
 ```
 // clone this repo
