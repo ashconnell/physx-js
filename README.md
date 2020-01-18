@@ -1,20 +1,20 @@
 # PhysX JS
 
-PhysX on the web.
+PhysX for JavaScript.
 
 This repo complements the work being done over at [prestomation/PhysX](https://github.com/prestomation/PhysX) to create emscripten bindings for [NVIDIAGameWorks/PhysX](https://github.com/NVIDIAGameWorks/PhysX). 
-At some point the prestomation/PhysX fork may be merged into NVIDIAGameWorks/PhysX and this repo will be updated to track that repo.
+At some point the prestomation/PhysX fork may be merged into NVIDIAGameWorks/PhysX and this repo will be updated to track that repo instead.
 
-This repo serves two purposes:
+This repo serves multiple purposes:
 
-- Offer a reproducible docker environment to easily build and compile PhysX to WebAssembly via [Emscripten](https://emscripten.org)
-- House the files used to publish this as a package on npm ([physx-js](https://www.npmjs.com/package/physx-js))
+- Provide a Docker workflow for compiling and building PhysX to WebAssembly via [Emscripten](https://emscripten.org)
+- Provide a Docker workflow for adding new bindings (the whole PhysX API is not currently covered yet)
+- To publish WebAssembly files to npm ([physx-js](https://www.npmjs.com/package/physx-js)) so that they can be used in projects via npm or CDN
 
 ## Example
 
-There is an example of how to use this with Webpack in the `/example` folder. 
-
-Alternatively you can [preview the live version](https://physx-js-example.deminetix.now.sh) hosted on now.sh
+There is an example with [threejs](https://threejs.org/) and [physx-js](https://www.npmjs.com/package/physx-js) using Webpack in the `/example` folder.
+The example is also available to [preview here](https://physx-js-example.deminetix.now.sh), it's hosted on [now](https://zeit.co/)
 
 ## Usage via npm
 
@@ -22,29 +22,33 @@ Alternatively you can [preview the live version](https://physx-js-example.demine
 npm install physx-js
 ```
 
-The `physx.release.js` file can be imported via Webpack etc or included as a script on the page
+The `physx.release.js` file can be imported via Webpack or included as a script on the page
 
-The `physx.release.wasm` needs to be served in a public folder so that it can be loaded in a browser environment
+The `physx.release.wasm` file needs to be served in a static/public folder so that it can be loaded in a browser environment
 
 See `/example` for how this can be done using Webpack.
 
 ## Usage via CDN (jsDelivr)
 
-Depending on your environment, you may not be able to use npm. 
-
-In this case, you can include the js file as a script via the CDN that mirrors the npm library:
+You may want to load the WebAssembly files via CDN, in which case you can use jsDelivr's npm mirror, loaded as a script:
 
 ```
 <script src="https://cdn.jsdelivr.net/npm/physx-js/dist/physx.release.js">
 ```
 
-Then configure it to also load the wasm file from the CDN:
+You can also target a specific version:
+
+```
+<script src="https://cdn.jsdelivr.net/npm/physx-js@0.0.6/dist/physx.release.js">
+```
+
+Then configure this to also load the wasm file from the same place:
 
 ```
 PHYSX({
   locateFile(path) {
     if (path.endsWith('.wasm')) {
-      return 'https://cdn.jsdelivr.net/npm/physx-js/dist/physx.release.wasm'
+      return 'https://cdn.jsdelivr.net/npm/physx-js@0.0.6/dist/physx.release.wasm'
     }
     return path
   }
@@ -54,21 +58,26 @@ PHYSX({
 
 ## Development
 
-You can modify and/or build this yourself from source to create js and wasm files.
+You can build the source yourself and/or add new bindings. The full [PhysX API](https://gameworksdocs.nvidia.com/PhysX/4.1/documentation/physxapi/files/index.html) isn't covered yet but more will be added
 
-The only dependencies you need are Docker and Node/NPM. All other dependencies are managed inside the docker image.
+The only dependencies you need to do this are Docker, node and npm. All other dependencies are managed inside the docker image.
 
 ```
-// clone this repo
+// Clone this repo
 git clone https://github.com/ashconnell/physx-js.git
 
-// install PhysX source dependency
+// Install/update the PhysX source dependency
 npm install
 
-// build
-npm run build
+// Generate the project (i believe this only needs to be run once, can take a while)
+npm run generate
+
+// Build WebAssembly files (physx.release.js and physx.release.wasm)
+npm run make
 ```
 
 This will start a docker container, mount the PhysX source code and then build and compile it using emscripten.
 
 The output files (js and wasm) are copied into ./dist
+
+If you want to add new bindings, edit `physx/source/physxwebbindings/src/PxWebBindings.cpp` and then run `npm run make` to build it.

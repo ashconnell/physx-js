@@ -1,6 +1,6 @@
 {
   "name": "physx-js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Ash Connell <hello@ashconnell.com>",
   "main": "dist/physx.release.js",
   "repository": {
@@ -14,7 +14,9 @@
     "physx": "prestomation/PhysX#emscripten_wip"
   },
   "scripts": {
-    "build": "docker run --rm -v $(pwd):/src trzeci/emscripten ./build.sh",
+    "generate ": "docker run --rm -v $(pwd):/src trzeci/emscripten ./generate.sh",
+    "make": "docker run --rm -v $(pwd):/src trzeci/emscripten ./make.sh",
+    "clean": "docker run --rm -v $(pwd):/src trzeci/emscripten ./clean.sh",
     "shell": "docker run --rm -it -v $(pwd):/src trzeci/emscripten /bin/bash"
   }
 }

@@ -18,7 +18,7 @@
     "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
-    "physx-js": "^0.0.3",
+    "physx-js": "^0.0.6",
     "three": "^0.112.1"
   }
 }
