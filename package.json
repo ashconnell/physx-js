@@ -14,7 +14,7 @@
     "physx": "prestomation/PhysX#emscripten_wip"
   },
   "scripts": {
-    "generate ": "docker run --rm -v $(pwd):/src trzeci/emscripten ./generate.sh",
+    "generate": "docker run --rm -v $(pwd):/src trzeci/emscripten ./generate.sh",
     "make": "docker run --rm -v $(pwd):/src trzeci/emscripten ./make.sh",
     "clean": "docker run --rm -v $(pwd):/src trzeci/emscripten ./clean.sh",
     "shell": "docker run --rm -it -v $(pwd):/src trzeci/emscripten /bin/bash"
