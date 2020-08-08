@@ -26,7 +26,7 @@ The `physx.release.js` file can be imported via Webpack or included as a script 
 
 The `physx.release.wasm` file needs to be served in a static/public folder so that it can be loaded in a browser environment
 
-See `/example` for how this can be done using Webpack.
+See `/examples` for how this can be used in Node, Browser and Browser w/ Webpack.
 
 ## Usage via CDN (jsDelivr)
 
