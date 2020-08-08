@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd node_modules/physx/physx
+cd ./PhysX/physx
 ./generate_projects.sh emscripten

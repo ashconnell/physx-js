@@ -10,9 +10,6 @@
   "bugs": {
     "url": "https://github.com/ashconnell/physx-js/issues"
   },
-  "devDependencies": {
-    "physx": "prestomation/PhysX#emscripten_wip"
-  },
   "scripts": {
     "generate": "docker run --rm -v $(pwd):/src trzeci/emscripten ./generate.sh",
     "make": "docker run --rm -v $(pwd):/src trzeci/emscripten ./make.sh",

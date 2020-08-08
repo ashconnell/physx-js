@@ -58,26 +58,26 @@ PHYSX({
 
 ## Development
 
-You can build the source yourself and/or add new bindings. The full [PhysX API](https://gameworksdocs.nvidia.com/PhysX/4.1/documentation/physxapi/files/index.html) isn't covered yet but more will be added
+You may want to make your own builds from source, or modify the bindings yourself. The full [PhysX API](https://gameworksdocs.nvidia.com/PhysX/4.1/documentation/physxapi/files/index.html) isn't covered yet but more will be added in the future.
 
-The only dependencies you need to do this are Docker, node and npm. All other dependencies are managed inside the docker image.
+The only dependencies you need to do this are Docker, Node and Npm. All other dependencies are managed inside the docker image.
+
+The scripts run from this repo expect the repo `prestomation/PhysX#emscripten_wip` to be mounted here at `./PhysX`.
 
 ```
-// Clone this repo
-git clone https://github.com/ashconnell/physx-js.git
-
-// Install/update the PhysX source dependency
+// Install dependencies
 npm install
 
 // Generate the project (i believe this only needs to be run once, can take a while)
 npm run generate
 
 // Build WebAssembly files (physx.release.js and physx.release.wasm)
+// This is all that needs to be run after making changes to bindings.
 npm run make
 ```
 
-This will start a docker container, mount the PhysX source code and then build and compile it using emscripten.
+These scripts will start a docker container, mount the PhysX source code and then build and compile it using emscripten.
 
-The output files (js and wasm) are copied into ./dist
+The output files (js and wasm) are copied into `./dist`
 
-If you want to add new bindings, edit `physx/source/physxwebbindings/src/PxWebBindings.cpp` and then run `npm run make` to build it.
+If you want to add new bindings, edit `./PhysX/physx/source/physxwebbindings/src/PxWebBindings.cpp` and then run `npm run make` to rebuild.
