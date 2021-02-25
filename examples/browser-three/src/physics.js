@@ -83,6 +83,11 @@ export const init = entities => {
         PhysX.PxShapeFlag.eSIMULATION_SHAPE.value
     )
     const shape = physics.createShape(geometry, material, false, flags)
+    
+    const filterData = new PhysX.PxFilterData(1, 1, 0, 0)
+    shape.setQueryFilterData(filterData)
+    shape.setSimulationFilterData(filterData)
+    
     const transform = {
       translation: {
         x: entity.transform.position[0],
