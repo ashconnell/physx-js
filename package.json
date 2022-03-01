@@ -1,6 +1,6 @@
 {
   "name": "physx-js",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "author": "Ash Connell <hello@ashconnell.com>",
   "main": "dist/physx.release.js",
   "repository": {
